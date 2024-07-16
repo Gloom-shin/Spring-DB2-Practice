@@ -107,6 +107,7 @@ public class JdbcTemplateItemRepositoryV2 implements ItemRepository {
 
     private RowMapper<Item> itemRowMapper() {
         return BeanPropertyRowMapper.newInstance(Item.class);
-        // 언더스코어 표기법(java객체) -> 카멜 표기법 (SQL)로 변환해준다.
+        // 언더스코어 표기법(SQL) -> 카멜 표기법 (java)로 변환해준다.
+        // 쿼리의 결과가 언더스코어로 되어있기때문에, Mapper로 변환해줘야한다.
     }
 }
