@@ -33,7 +33,7 @@ public class JdbcTemplateItemRepositoryV1 implements ItemRepository {
     public Item save(Item item) {
         String sql = "insert into item (item_name, price, quantity) values(?, ?, ?)";
         KeyHolder keyHolder = new GeneratedKeyHolder();
-        jdbcTemplate.update(con -> {
+        jdbcTemplate. update(con -> {
             //자동 증가 키
             PreparedStatement ps = con.prepareStatement(sql, new String[]{"id"});
             ps.setString(1, item.getItemName());
@@ -49,7 +49,7 @@ public class JdbcTemplateItemRepositoryV1 implements ItemRepository {
 
     @Override
     public void update(Long itemId, ItemUpdateDto updateParam) {
-        String sql = "update item set item_name = ? , price = ?. quantity = ? where id =?";
+        String sql = "update item set item_name = ? , price = ?, quantity = ? where id =?";
         jdbcTemplate.update(sql,
                 updateParam.getItemName(),
                 updateParam.getPrice(),
