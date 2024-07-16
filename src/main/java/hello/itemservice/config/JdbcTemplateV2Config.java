@@ -24,7 +24,7 @@ public class JdbcTemplateV2Config {
 
     @Bean
     public ItemRepository itemRepository() {
-        return new JdbcTemplateItemRepositoryV1(dataSource);
+        return new JdbcTemplateItemRepositoryV2(dataSource);
     }
 
 
